@@ -1,0 +1,23 @@
+# for testing event http endpoints
+
+@url = http://localhost:8080/api/event
+
+# return all events
+GET {{url}} HTTP/1.1
+
+###
+
+# return event by id
+GET {{url}}/1 HTTP/1.1
+
+###
+# add new event - not working - needing to sort out java timestamp datatype
+POST {{url}} HTTP/1.1
+Content-Type: application/json
+
+{
+  "eventName": "The Test",
+  "venueAddress": "132 Test, ts20",
+  "startTime": "2022-07-21 12:00:00",
+  "endTime": "2022-07-21 15:00:00"
+}

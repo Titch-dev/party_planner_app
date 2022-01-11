@@ -1,0 +1,49 @@
+# for testing guest http endpoints
+
+@url = http://localhost:8080/api/guest
+
+# return all guests
+GET {{url}} HTTP/1.1
+
+###
+
+# return all lead guests
+GET {{url}}/leads HTTP/1.1
+
+###
+
+# return guest by id
+GET {{url}}/3 HTTP/1.1
+
+###
+
+# add new guest to group 2
+POST {{url}} HTTP/1.1
+Content-Type: application/json
+
+{
+    "firstName": "Sarah",
+    "lastName": "Haggart",
+    "isLead": false,
+    "groupId": 2
+}
+
+###
+
+# update guest 4
+PUT {{url}}/4 HTTP/1.1
+Content-Type: application/json
+
+{
+    "guestId":4,
+    "firstName": "Nick",
+    "lastName": "Calvert",
+    "isLead": false,
+    "groupId": 2
+}
+
+###
+
+# delete guest 4
+DELETE {{url}}/4 HTTP/1.1
+

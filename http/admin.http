@@ -1,0 +1,44 @@
+# for testing admin http endpoints
+
+@url = http://localhost:8080/api/admin
+
+# return all admins
+GET {{url}} HTTP/1.1
+
+###
+
+# return admin by id
+GET {{url}}/2 HTTP/1.1
+
+###
+
+# add new admin
+POST {{url}} HTTP/1.1
+Content-Type: application/json
+
+{
+    "firstName": "Kenny",
+    "lastName": "McFarlan",
+    "email": "kenny@gmail.com",
+    "password": "password"
+}
+
+###
+
+# update admin 2
+PUT {{url}}/2 HTTP/1.1
+Content-Type: application/json
+
+{
+    "adminId":2,
+    "firstName": "Kenny",
+    "lastName": "McFarlan",
+    "email": "kenny@gmail.com",
+    "password": "changed"
+}
+
+###
+
+# delete admin 2
+DELETE {{url}}/2 HTTP/1.1
+
